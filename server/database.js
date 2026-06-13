@@ -1,3 +1,4 @@
+import fs from "fs";
 import Database from "better-sqlite3";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -5,6 +6,9 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(__dirname, "data");
 const dbPath = path.join(DATA_DIR, "portfolio.db");
+
+fs.mkdirSync(DATA_DIR, { recursive: true });
+fs.mkdirSync(path.join(__dirname, "uploads"), { recursive: true });
 
 let db;
 
